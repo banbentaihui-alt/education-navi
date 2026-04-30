@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESHAPP-1｜オーダー通し判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DESHAPP-1｜オーダー通し判断
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      デシャップを「流す場所」ではなく、<br>
+      <strong>正確な指示でキッチンの動きを整える起点</strong><br>
+      として機能させることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（声出し・通し方）</h2>
+    <ul>
+      <li>商品を読み上げる前に、必ず「お願いします」と声を出している</li>
+      <li>大きく明るい声で、商品略語・数量を正確に伝えている</li>
+      <li>聞き返しが起きないスピードと区切りで伝えている</li>
+      <li>情報区分（店内・持ち帰り等）を正確に伝えている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>最初の声出しで、その後の流れが決まる</li>
+      <li>曖昧な通しは、作り直し・遅延の原因になる</li>
+      <li>「伝えたつもり」ではなく「伝わったか」を基準にする</li>
+    </ul>
+    <p>
+      👉 オーダー通しは作業ではなく、<br>
+      <strong>全体を動かすための指示</strong>である。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>「お願いします」からオーダーを通している</li>
+      <li>商品略語・数量を正確に伝えられている</li>
+      <li>情報区分の内容を正しくキッチンに伝えている</li>
+      <li>声量・伝え方が適切である</li>
+    </ul>
+    <p class="note">
+      ※ 聞き返しが発生しない通し方ができていること
+    </p>
+  </div>
+
+  <!-- 写真欄 -->
+  <div class="card">
+    <h2>判断例（写真）</h2>
+
+    <div class="photo-box ok">
+      <p>✅ はっきりとした声でオーダーを通している例</p>
+    </div>
+
+    <div class="photo-box ng">
+      <p>❌ 声が小さく、聞き返しが発生している例</p>
+    </div>
+
+    <div class="photo-box border">
+      <p>⚠ 忙しさで声出しが雑になりかけている場面</p>
+    </div>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>オーダー通しの重要性を理解している</li>
+      <li>正確な声出しができている</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="deshapp-step1">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./deshapp.html" class="btn-nav">デシャップSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+  if (localStorage.getItem(key)) {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key)) {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

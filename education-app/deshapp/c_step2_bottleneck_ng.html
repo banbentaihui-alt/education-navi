@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESHAPP-2｜ボトルネック判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DESHAPP-2｜ボトルネック判断
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      伝票・セット・準備の状況を見て、<br>
+      <strong>この流れを続けてよいか／止めるべきか</strong><br>
+      を判断できるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（判断材料の確認）</h2>
+    <ul>
+      <li>伝票が特定ジャンル・時間帯に集中していないか</li>
+      <li>同じ工程の商品が溜まり始めていないか</li>
+      <li>セット・モーニング準備が「出ない在庫」になっていないか</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>今の流れは、この先も回り続けるかを考える</li>
+      <li>一度止めた方が早く回復する流れがある</li>
+      <li>整っている＝流していい、ではない</li>
+    </ul>
+    <p>
+      👉 「準備できているか」ではなく、<br>
+      <strong>回り続けるか</strong>で判断する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目</h2>
+    <ul class="checklist">
+      <li>今の流れが詰まり始めている理由を説明できる</li>
+      <li>止めた方が良い判断を言語化できる</li>
+      <li>流し続けた場合の悪化を説明できる</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="deshapp-step2">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./deshapp.html" class="btn-nav">デシャップTOP</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+
+  if (localStorage.getItem(key) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key) === "done") {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

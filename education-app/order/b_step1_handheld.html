@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORDER-1｜受注順判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  ORDER-1｜受注順判断
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      オーダーを「来た順に取る」ではなく、<br>
+      <strong>全体を止めない受注順を判断する</strong><br>
+      ことを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（やり方）</h2>
+    <ul>
+      <li>フロアとキッチンの状況を把握する</li>
+      <li>受注に時間がかかりそうな卓を認識する</li>
+      <li>先に対応すべきオーダーを選ぶ</li>
+      <li>受けられない場合は判断を保留する</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>「今受けることで詰まらないか」を基準にする</li>
+      <li>全員を同時に待たせない判断をする</li>
+      <li>忙しそうな人を助ける方を優先する</li>
+      <li>受注＝即処理、ではない</li>
+    </ul>
+    <p>
+      👉 早く取ることより、<br>
+      <strong>後ろを詰まらせないこと</strong>を優先する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>なぜその卓を先に取ったか説明できる</li>
+      <li>別の順番を選ばなかった理由を説明できる</li>
+      <li>順番を誤ると何が起きるか説明できる</li>
+      <li>受注を一度止める判断を説明できる</li>
+    </ul>
+    <p class="note">
+      ※ すべて理由をセットで説明できること
+    </p>
+  </div>
+
+  <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/JHS6hx_yqhk"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>受注順の判断理由を説明できた</li>
+      <li>全体視点で話せた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="order-step1">
+      このSTEPを完了
+    </button>
+  </div>
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+
+</main>
+
+<footer class="step-footer">
+  <a href="./order.html" class="btn-nav">オーダーSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>

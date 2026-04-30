@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教育進捗</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+document.getElementById("changeNameBtn")?.addEventListener("click", () => {
+  const currentName = localStorage.getItem("staffName") || "";
+  const newName = prompt("新しい名前を入力してください", currentName);
+
+  if (newName && newName.trim()) {
+    localStorage.setItem("staffName", newName.trim());
+    location.reload(); // 表示を即更新
+  }
+});
+</script>
+<body>
+
+<header>
+  教育進捗
+</header>
+<div class="card">
+  <h2 id="progressUserName" style="font-size:1.4em;"></h2>
+</div>
+
+<main>
+
+  <!-- 全体進捗 -->
+  <div class="card">
+    <h2>全体進捗</h2>
+    <p id="totalRate"></p>
+  </div>
+
+  <!-- ① フロア基礎 -->
+  <div class="card">
+    <h2>① フロア基礎</h2>
+    <ul id="floorProgress"></ul>
+  </div>
+
+  <!-- ② オーダー・会計 -->
+  <div class="card">
+    <h2>② オーダー・会計</h2>
+    <ul id="orderProgress"></ul>
+  </div>
+
+  <!-- ③ 案内・エスコート -->
+  <div class="card">
+    <h2>③ 案内・エスコート</h2>
+    <ul id="escortProgress"></ul>
+  </div>
+
+  <!-- ④ ドリンク -->
+  <div class="card">
+    <h2>④ ドリンク</h2>
+    <ul id="drinkProgress"></ul>
+  </div>
+
+  <!-- ⑤ スナック -->
+  <div class="card">
+    <h2>⑤ スナック</h2>
+    <ul id="snackProgress"></ul>
+  </div>
+
+  <!-- ⑥ デシャップ -->
+  <div class="card">
+    <h2>⑥ デシャップ</h2>
+    <ul id="deshappProgress"></ul>
+  </div>
+
+  <!-- ⑦ ピークマネジメント -->
+  <div class="card">
+    <h2>⑦ ピークマネジメント</h2>
+    <ul id="peakProgress"></ul>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="index.html" class="btn-nav">TOPに戻る</a>
+</footer>
+
+<script>
+// ===== STEP表示名（日本語）辞書 =====
+const STEP_LABELS = {
+  // フロア
+  "floor-step2-1": "下げ　　　",
+  "floor-step2-2": "お冷提供　",
+  "floor-step2-3": "中間下げ　",
+  "floor-step2-4": "入店気づき",
+  "floor-step2-5": "重複・判断",
+  "floor-step8":   "商品提供　",
+
+  // オーダー・会計
+  "order-step1": "ハンディ｜基本",
+  "order-step2": "ハンディ｜確認",
+  "order-step3": "レジ　　｜基本",
+
+  // 案内・エスコート
+  "escorte-step1": "案内｜入口認知・第一印象判断",
+  "escorte-step2": "満席｜ウェイティング対応判断",
+  "escorte-step3": "配席｜人数コントロール判断",
+
+  // ドリンク
+  "drink-step1": "ドリンク｜基本（基準管理）",
+  "drink-step2": "ドリンク｜応用（時間管理）",
+  "drink-step3": "ドリンク｜発展（同時作成）",
+
+  // スナック
+  "snack-step1": "スナック｜基本（レシピ・器具）",
+  "snack-step2": "スナック｜応用（時間管理）",
+  "snack-step3": "スナック｜発展（同時調理）",
+
+  // デシャップ
+  "deshapp-step1": "デシャップ｜オーダー通し",
+  "deshapp-step2": "デシャップ｜ボトルネック判断",
+  "deshapp-step3": "デシャップ｜備品管理・提供チェック",
+  "deshapp-step4": "デシャップ｜異常検知・時間管理",
+  "deshapp-step5": "デシャップ｜優先順位コントロール",
+
+  // ピーク
+  "peak-step1": "ピーク｜フロア自己判断",
+  "peak-step2": "ピーク｜厨房安定",
+  "peak-step3": "ピーク｜厨房連携",
+  "peak-step4": "ピーク｜全体コントロール"
+};
+
+// ===== セクション定義（合計 27 STEP）=====
+const sections = {
+  floor: {
+    elementId: "floorProgress",
+    steps: [
+      "floor-step2-1",
+      "floor-step2-2",
+      "floor-step2-3",
+      "floor-step2-4",
+      "floor-step2-5",
+      "floor-step8"
+    ]
+  },
+  order: {
+    elementId: "orderProgress",
+    steps: [
+      "order-step1",
+      "order-step2",
+      "order-step3"
+    ]
+  },
+  escort: {
+    elementId: "escortProgress",
+    steps: [
+      "escorte-step1",
+      "escorte-step2",
+      "escorte-step3"
+    ]
+  },
+  drink: {
+    elementId: "drinkProgress",
+    steps: [
+      "drink-step1",
+      "drink-step2",
+      "drink-step3"
+    ]
+  },
+  snack: {
+    elementId: "snackProgress",
+    steps: [
+      "snack-step1",
+      "snack-step2",
+      "snack-step3"
+    ]
+  },
+  deshapp: {
+    elementId: "deshappProgress",
+    steps: [
+      "deshapp-step1",
+      "deshapp-step2",
+      "deshapp-step3",
+      "deshapp-step4",
+      "deshapp-step5"
+    ]
+  },
+  peak: {
+    elementId: "peakProgress",
+    steps: [
+      "peak-step1",
+      "peak-step2",
+      "peak-step3",
+      "peak-step4"
+    ]
+  }
+};
+
+// ===== 進捗集計 =====
+let total = 0;
+let done = 0;
+
+Object.values(sections).forEach(section => {
+  const ul = document.getElementById(section.elementId);
+
+  section.steps.forEach(key => {
+    total++;
+    const li = document.createElement("li");
+    const label = STEP_LABELS[key] || key;
+
+    if (localStorage.getItem(key) === "done") {
+      li.textContent = "✔ " + label;
+      li.style.color = "green";
+      done++;
+    } else {
+      li.textContent = "・ " + label;
+    }
+
+    ul.appendChild(li);
+  });
+});
+
+// ===== 全体％表示 =====
+const rate = Math.round((done / total) * 100);
+document.getElementById("totalRate").textContent =
+  `進捗：${done} / ${total}（${rate}%）`;
+
+const staffName = localStorage.getItem("staffName");
+if (staffName) {
+  const nameEl = document.getElementById("progressUserName");
+  if (nameEl) {
+    nameEl.textContent = `${staffName}さんの教育進捗`;
+  }
+}
+
+
+</script>
+
+</body>
+</html>

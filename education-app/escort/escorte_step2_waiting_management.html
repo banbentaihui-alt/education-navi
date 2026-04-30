@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-2｜満席・ウェイティング対応判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  E-2｜満席・ウェイティング対応判断
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      満席・待ち時間を、<br>
+      <strong>不満ではなく納得に変える判断</strong><br>
+      を行うことを目的とします。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>満席時にお詫びと明確な声掛けができている</li>
+      <li>ウェイティングシートの記入・管理を正確に行っている</li>
+      <li>お待ちのお客様の順番を把握している</li>
+      <li>席が空いた際、スムーズにご案内できている</li>
+      <li>順番前後時に配慮の一声を掛けられている</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <p>
+      👉 不満の原因は待ち時間ではない<br>
+      <strong>説明不足と配慮不足</strong>。
+    </p>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- ✅ STEP完了ブロック -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button
+  class="btn-step js-step-toggle"
+  data-step-key="escorte-step2">
+  このSTEPを完了
+</button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./escorte.html" class="btn-nav">案内TOPに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<!-- ✅ 進捗連動用JS（必須） -->
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+
+  // 初期状態
+  if (localStorage.getItem(key) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key) === "done") {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

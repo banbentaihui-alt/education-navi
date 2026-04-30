@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DRINK-1｜基本：レシピ・基準管理
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      ドリンク作成を自己流にせず、<br>
+      <strong>レシピ・温度・分量・見た目の基準を正しく覚え、再現できる状態</strong><br>
+      をつくることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>□ レシピ通りの分量・手順で商品を作成している</li>
+      <li>□ リキッドコーヒーを80℃で加熱し、速やかに提供または保温している</li>
+      <li>□ リキッドコーヒーの保温を20分以内で管理している</li>
+      <li>□ 加熱しすぎることなく、必要以上のロスなく管理している</li>
+      <li>□ 湯せんの温度を85℃・湯量も適正に管理できている</li>
+      <li>□ カップの保温を十分に行っている</li>
+      <li>□ ホイップ・ソフトクリーム商品の見た目にばらつきがない</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>早く作ることより、基準通りに作れているかを優先する</li>
+      <li>温度・分量・見た目は毎回同じ仕上がりであることが重要</li>
+      <li>基準が崩れると、その後の作成判断も崩れる</li>
+    </ul>
+    <p>
+      👉 ドリンク作成の基本は、<br>
+      <strong>「迷わず同じものを作れること」</strong>。
+    </p>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>レシピと温度・分量・見た目の基準を説明できた</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="drink-step1">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  // 初期表示
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+<footer style="padding:12px; text-align:center;">
+  <a href="drink.html" class="btn">ドリンクトップに戻る</a> ｜ 
+  <a href="../index.html" class="btn">トップ</a> ｜ 
+  <a href="../progress.html" class="btn">進捗</a>
+</footer>
+
+</body>
+</html>

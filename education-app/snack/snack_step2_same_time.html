@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  SNACK-2｜応用：時間管理・安定作成
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      基本の作業を守ったまま、<br>
+      <strong>一品あたりを基準時間内で安定して作成できる状態</strong><br>
+      をつくることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>□ オーダーをモニターで確認し、作成内容を把握している</li>
+      <li>□ 正確な手順で、無駄な動きなく作業している</li>
+      <li>□ 揚げ物の時間を適切に管理できている</li>
+      <li>□ 焼き色や仕上がりを確認しながら作成している</li>
+      <li>□ モーニング用のたまごを適正に管理できている（量・温度）</li>
+      <li>□ 作業の合間に補充や片づけを行い、次のオーダーに備えている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>素早さは「急ぎ」ではなく、段取りによって生まれる</li>
+      <li>今作っている一品が、次の作業を止めていないかを考える</li>
+      <li>焼き・揚げは「放置」せず、必ず状態を管理する</li>
+    </ul>
+    <p>
+      👉 応用段階では、<br>
+      <strong>時間内で安定して出し続けられること</strong>が求められる。
+    </p>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>一品を時間内で作成する考え方を説明できた</li>
+      <li>無駄な動きが発生する理由を説明できた</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="snack-step2">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  // 初期表示
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+<footer style="padding:12px; text-align:center;">
+  <a href="snack.html" class="btn">スナックトップに戻る</a> ｜ 
+  <a href="../index.html" class="btn">トップ</a> ｜ 
+  <a href="../progress.html" class="btn">進捗</a>
+</footer>
+
+</body>
+</html>

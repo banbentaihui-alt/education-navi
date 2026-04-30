@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORDER-2｜必須確認（オーダーミス防止）</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  ORDER-2｜必須確認（オーダーミス防止）
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      オーダーを「早く取る」よりも、<br>
+      <strong>確認不足によるミスやトラブルを防ぐこと</strong><br>
+      を目的としたSTEPです。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（必須確認項目）</h2>
+    <ul>
+      <li>□ 商品知識を正確に把握し、質問に的確に回答できている</li>
+      <li>□ オーダーを正確に聞き取り、復唱して確認している</li>
+      <li>□ 注文時に甘味の入り抜きを確認している</li>
+      <li>□ 辛子マヨネーズ使用商品で、辛子マヨ or マヨネーズの確認をしている</li>
+      <li>□ モーニングサービス内容（バター／イチゴジャム）まで確認している</li>
+      <li>□ スナック注文時、必要事項（デザート・パスタ＋ドリンクのタイミング等）を確認している</li>
+      <li>□ デザートの食後確認を行い、再呼び出しの案内ができている</li>
+      <li>□ 追加オーダーを正確に聞き取れている</li>
+      <li>□ お子様への配慮（氷抜き・ぬるめ等）の提案ができている</li>
+      <li>□ 丁寧な姿勢・笑顔・正しい言葉遣いでオーダーを伺っている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>確認しなかったミスは、必ず後工程で問題になる</li>
+      <li>「分かっているつもり」「いつも同じ」は危険</li>
+      <li>忙しい時ほど確認を省かない</li>
+      <li>一言の確認が、やり直しやクレームを防ぐ</li>
+    </ul>
+    <p>
+      👉 スピードより、<br>
+      <strong>正確さと信頼</strong>を優先する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>確認不足で起きたトラブル事例を説明できる</li>
+      <li>復唱を行う理由を説明できる</li>
+      <li>オプション確認を省いた場合のリスクを説明できる</li>
+      <li>忙しい時ほど確認が必要な理由を説明できる</li>
+    </ul>
+    <p class="note">
+      ※ 実際に起こり得るケースを交えて説明できること
+    </p>
+  </div>
+
+  <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>必須確認項目を理解していた</li>
+      <li>確認不足のリスクを説明できた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="order-step2">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./order.html" class="btn-nav">オーダーSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

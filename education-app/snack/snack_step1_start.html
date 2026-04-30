@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  SNACK-1｜基本：レシピ・調理器具
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      スナックを自己流にせず、<br>
+      <strong>レシピ・調理器具・安全を正しく理解し、基準通りに作れる状態</strong><br>
+      をつくることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>□ 食材・食器の位置を把握し、必要な場合すぐに取り出せている</li>
+      <li>□ 正しい包丁の使い方で、安全に作業している</li>
+      <li>□ パンを潰すことなく、正しくカットしている</li>
+      <li>□ きゅうり（サンド用・サラダ用）を正しい厚さでカットしている</li>
+      <li>□ トマト（半月切り・サラダ用）を正しい厚さ・大きさでカットしている</li>
+      <li>□ 正しいアンベラの使い方で、バター・マヨネーズ・タマペーを塗れている</li>
+      <li>□ 正確な分量で、基準通りの商品作成ができている</li>
+      <li>□ 包丁を安全に取り扱い、周囲にも配慮できている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>早く作る前に「正しく扱えているか」を優先する</li>
+      <li>切り方・塗り方・分量は味と見た目を左右する</li>
+      <li>安全な作業ができてこそ、次のスピードが活きる</li>
+    </ul>
+    <p>
+      👉 スナックの基本は、<br>
+      <strong>「正しく・安全に・同じものを作れること」</strong>。
+    </p>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>包丁・器具の使い方を正しく説明できた</li>
+      <li>基準通りに作る意味を説明できた</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="snack-step1">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  // 初期表示
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+<footer style="padding:12px; text-align:center;">
+  <a href="snack.html" class="btn">スナックトップに戻る</a> ｜ 
+  <a href="../index.html" class="btn">トップ</a> ｜ 
+  <a href="../progress.html" class="btn">進捗</a>
+</footer>
+
+</body>
+</html>
+``

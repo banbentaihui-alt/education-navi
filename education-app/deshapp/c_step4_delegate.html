@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESHAPP-4｜異常検知・時間管理・指示判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DESHAPP-4｜異常検知・時間管理・指示判断
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      商品と時間の異常を見逃さず、<br>
+      <strong>止める・是正する・指示を出す判断</strong><br>
+      ができるようになることを目的とします。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>① オペレーション（異常・時間の確認）</h2>
+    <ul>
+      <li>盛り付けの乱れ・混入・汚れがないか確認している</li>
+      <li>品質に問題がある商品を止められている</li>
+      <li>提供までの時間が長くなっている商品を把握している</li>
+      <li>明確に「お待たせ」状態の商品を認識できている</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>品質異常は流さず、必ず是正する</li>
+      <li>時間も商品品質の一部である</li>
+      <li>遅延は個人判断にせず、現場全体で共有する</li>
+      <li>謝罪はデシャップ判断で統一して指示する</li>
+    </ul>
+    <p>
+      👉 「出せるか」ではなく、<br>
+      <strong>出していいか</strong>で判断する。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>商品異常の具体例を説明できる</li>
+      <li>止める判断が必要な理由を説明できる</li>
+      <li>お待たせ状態の判断基準を説明できる</li>
+      <li>提供者に「謝罪を添える」指示ができる</li>
+      <li>キッチンに遅延理由を請求できる</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="deshapp-step4">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./deshapp.html" class="btn-nav">デシャップTOPに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+  if (localStorage.getItem(key) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key) === "done") {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORDER-3｜レジ判断</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  ORDER-3｜レジ判断
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      お会計を「処理」ではなく、<br>
+      <strong>店舗の最終印象を決める重要な対応</strong><br>
+      として行えるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（必須確認・基本所作）</h2>
+    <ul>
+      <li>□ お会計のお客様に素早く反応し、すぐにあいさつしている</li>
+      <li>□ レジ前でも改めて「ありがとうございます」と伝えている</li>
+      <li>□ 伝票を両手で受け取り、笑顔でお客様の顔を見て対応している</li>
+      <li>□ レジ操作を正確かつスムーズに行えている</li>
+      <li>□ 金額・お預かり・お釣りを声に出して確認している</li>
+      <li>□ 間違った接客用語（例：一万円から／大きい方のお返し）を使っていない</li>
+      <li>□ お釣りの金額を復唱し、見やすく分かりやすく渡している</li>
+      <li>□ 釣銭・レシートを両手で丁寧に渡している</li>
+      <li>□ 操作に集中しすぎず、お客様の顔を見て対応している</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>会計は「最後の接客」であり、印象が強く残る</li>
+      <li>正確さと同時に、安心感・信頼感を与えることが重要</li>
+      <li>慣れによる省略や雑さはトラブルにつながる</li>
+      <li>一つひとつを丁寧に行うことでクレームを防げる</li>
+    </ul>
+    <p>
+      👉 速さより、<br>
+      <strong>正確さと気配り</strong>を優先する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>個別会計・複数伝票の合算会計ができる</li>
+      <li>コーヒーチケットの説明ができ、利用時の処理が正確にできる</li>
+      <li>コーヒーチケット回収時の伝票処理ができる</li>
+      <li>クレジットカード・電子マネー・コード決済を正確に処理できる</li>
+      <li>コメカカードの説明（ポイント・有効期限・約款）ができる</li>
+      <li>コメカカード利用時の処理が正確にできる</li>
+      <li>クレームがあったお客様に適切に謝罪・対応ができる</li>
+      <li>お見送りの際、背中に向かって感謝の言葉を伝えられている</li>
+    </ul>
+    <p class="note">
+      ※ 会計トラブルやクレーム発生時を想定して説明できること
+    </p>
+  </div>
+
+ <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>会計対応の重要性を理解していた</li>
+      <li>正確さと接客の両立ができていた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="order-step3">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./order.html" class="btn-nav">オーダーSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
