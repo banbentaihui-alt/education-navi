@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESHAPP-5｜優先順位コントロール</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DESHAPP-5｜優先順位コントロール
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      デシャップを、<br>
+      <strong>全体を最適に動かす司令塔</strong><br>
+      として機能させることを目的とします。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>ホールが効率的に動ける提供順になっているか確認している</li>
+      <li>キッチン内で特定工程に負荷が集中していないか見ている</li>
+      <li>キッチンがパンクしそうな兆候を察知できている</li>
+      <li>入店状況と提供スピードのバランスを把握している</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>提供順は「できた順」ではなく「ホールの動きやすさ」で決める</li>
+      <li>必要な場合、キッチンに提供順の変更を指示する</li>
+      <li>過負荷時はエスコートへ入店コントロールを依頼する</li>
+      <li>ボトルネックを理解し、生産性を移動させる判断を行う</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>提供順を意図をもって指示できる</li>
+      <li>ホールが動きやすい状態を説明できる</li>
+      <li>キッチン負荷を理由に入店制御を判断できる</li>
+      <li>ボトルネックと生産性の関係を説明できる</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="deshapp-step5">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./deshapp.html" class="btn-nav">デシャップTOPに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+
+  if (localStorage.getItem(key) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key) === "done") {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

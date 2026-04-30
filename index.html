@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>教育ナビ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("changeNameBtn");
+  if (!btn) return;
+
+  btn.addEventListener("click", () => {
+    const currentName = localStorage.getItem("staffName") || "";
+    const newName = prompt("新しい名前を入力してください", currentName);
+
+    if (newName && newName.trim()) {
+      localStorage.setItem("staffName", newName.trim());
+      location.reload(); // 表示を即更新
+    }
+  });
+});
+</script>
+</script>
+<body>
+
+<header>
+  教育ナビ
+</header>
+
+<main>
+<div class="card">
+  <input
+    type="text"
+    id="staffNameInput"
+    placeholder="名前を入力してください"
+    autocomplete="off"
+  >
+  <p id="staffNameDisplay"></p>
+</div>
+  <div class="card">
+    <h2>教育の進め方</h2>
+    <p>
+      判断が必要な業務を STEP 形式で整理しています。<br>
+      下から順番に進めることで、現場で迷わない判断力を身につけます。
+    </p>
+  </div>
+
+  <!-- ① フロア基礎 -->
+  <div class="card">
+    <h2>① フロア基礎</h2>
+    <p>下げ・お冷・中間・気づき・重複防止など、フロアの土台となる判断。</p>
+    <a href="floor/floor.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+  <!-- ② オーダー・会計 -->
+  <div class="card">
+    <h2>② オーダー・会計</h2>
+    <p>受注・レジ対応における判断と対応の基準を学びます。</p>
+    <a href="order/order.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+<!-- ③ 案内・エスコート -->
+<div class="card">
+  <h2>③｜案内・エスコート</h2>
+  <p>ご来店から着席までの流れを整え、
+  <br>入口・待ち・着席を判断でコントロールする領域。
+  </p>
+  <a href="escort/escorte.html" class="btn">STEPを見る</a>
+</div>
+
+  <!-- ④ ドリンク -->
+  <div class="card">
+    <h2>④ ドリンク</h2>
+    <p>着手・作成中・提供のタイミング判断を身につけます。</p>
+    <a href="drink/drink.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+  <!-- ⑤ スナック -->
+  <div class="card">
+    <h2>⑤ スナック</h2>
+    <p>調理開始から提供までの判断と連携を学びます。</p>
+    <a href="snack/snack.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+  <!-- ⑥ デシャップ -->
+  <div class="card">
+    <h2>⑥ デシャップ</h2>
+    <p>出す・止める・優先順位など、全体判断の要となるポジション。</p>
+    <a href="deshapp/deshapp.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+  <!-- ⑦ ピークマネジメント -->
+  <div class="card">
+    <h2>⑦ ピークマネジメント</h2>
+    <p>ピーク時の人配置・流れ・判断をまとめて学びます。</p>
+    <a href="peak/peak.html" class="btn-nav">STEPを見る</a>
+  </div>
+
+   <!-- ⑧ 進捗 -->
+  <div class="card">
+    <h2>⑧ 進捗</h2>
+    <p>各 STEP の完了状況を確認します。</p>
+    <a href="progress.html" class="btn-nav">進捗を見る</a>
+  </div>
+
+</main>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const input = document.getElementById("staffNameInput");
+  const display = document.getElementById("staffNameDisplay");
+
+  if (!input || !display) return;
+
+  // ページ読み込み時：保存済みの名前を表示
+  const savedName = localStorage.getItem("staffName");
+  if (savedName) {
+    input.value = savedName;
+    display.textContent = savedName + " さんの教育ナビ";
+  }
+
+  // 入力されたら即保存・即反映
+  input.addEventListener("input", () => {
+    const name = input.value.trim();
+    localStorage.setItem("staffName", name);
+    display.textContent = name
+      ? name + " さんの教育ナビ"
+      : "";
+  });
+
+});
+</script>
+``</body>
+</html>
+
+
+</body>
+</html> 

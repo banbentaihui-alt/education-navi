@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEAK-4｜全体コントロール</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  PEAK-4｜全体コントロール
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      ピークタイム全体を俯瞰し、<br>
+      <strong>フロア・厨房・導線を横断して最適化する判断</strong><br>
+      ができる状態をつくることを目的とします。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>ピークタイムにご案内を固定し、お待ちのお客様のストレスを軽減している</li>
+      <li>ご案内を担当し、フロア全体の動きをコントロールできている</li>
+      <li>空席情報を把握し、お客様が帰られないようスムーズに案内できている</li>
+      <li>デシャップで発生している詰まりを把握し、解消できている</li>
+      <li>厨房の遅延を把握し、解消に向けた動きを取れている</li>
+      <li>ポジションチェンジやポジションコントロールを行い、ボトルネックを解消できている</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>ピークは偶然ではなく、判断で回すもの</li>
+      <li>一部の忙しさではなく、全体の流れを見る</li>
+      <li>止める・変える判断が、結果的に回復を早める</li>
+      <li>現場は指示待ちでなく、判断で動かす</li>
+    </ul>
+    <p>
+      👉 目の前の対応より、<br>
+      <strong>全体が回り続ける状態</strong>を優先する。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>ピーク時の全体コントロールができている</li>
+      <li>ご案内・厨房・デシャップを横断して判断できている</li>
+      <li>ボトルネックを発見し、解消行動を取れている</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="peak-step4">
+      このSTEPを完了
+    </button>
+  </div>
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+
+</main>
+
+<footer class="step-footer">
+  <a href="./peak.html" class="btn-nav">ピークトップに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>

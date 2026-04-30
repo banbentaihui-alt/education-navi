@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP8｜商品提供</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  STEP8｜商品提供
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      商品提供を「運ぶ作業」ではなく、<br>
+      <strong>品質・タイミング・次行動までを含めた判断行動</strong><br>
+      として行い、満足度とフロア全体の流れを同時に守れるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（やり方）</h2>
+    <ul>
+      <li>デシャップされた商品を受け取る前に、内容・状態を確認する</li>
+      <li>提供先（席・人数・状況）を頭に入れてから動く</li>
+      <li>商品を置く際は、向き・位置・一言を意識する</li>
+      <li>提供後は、その卓と周囲の状況を一瞬確認する</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>「今この商品を出すことで、満足度は上がるか」を基準に考える</li>
+      <li>揃っていない・状況が合わない場合は出さない判断をする</li>
+      <li>提供後にフロア全体が止まらないかを考える</li>
+      <li>違和感がある場合は、勇気をもって止める</li>
+    </ul>
+    <p>
+      👉 商品提供は<strong>出す判断と、止める判断の両方が求められる行動</strong>。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>商品提供が満足度に直結する理由を説明できる</li>
+      <li>提供タイミングを誤ることで起こる問題を説明できる</li>
+      <li>出す前に必ず確認すべきポイントを説明できる</li>
+      <li>出す／止める判断基準を説明できる</li>
+    </ul>
+    <p class="note">
+      ※ すべて「なぜその判断になるのか」を説明できること
+    </p>
+  </div>
+
+  <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>商品提供の判断基準を自分の言葉で説明できた</li>
+      <li>提供後の次行動まで説明できた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="floor-step8">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./floor.html">フロアSTEP一覧</a>
+  <a href="../progress.html">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

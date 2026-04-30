@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEAK-3｜厨房連携・下支え動作</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  PEAK-3｜厨房連携・下支え動作
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      ピークタイムにおいて、<br>
+      <strong>一部の人に負荷を集中させず、厨房全体を下支えする動き</strong><br>
+      ができる状態をつくることを目的とします。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>複数人でスナックを行う際、自身の役割を理解して作業している</li>
+      <li>手が空いた際に、補充やスタンバイを自発的に行っている</li>
+      <li>次のオーダーに備え、事前準備や待機ができている</li>
+      <li>ピークタイムでも洗い場をためずに管理できている</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>ピークは「自分の仕事だけ」では回らない</li>
+      <li>手が空いた瞬間が、次の遅延を防ぐチャンスになる</li>
+      <li>補充・洗い場・スタンバイは、全体支援の重要な役割である</li>
+    </ul>
+    <p>
+      👉 作業を探すのではなく、<br>
+      <strong>全体を支える動きを選ぶ</strong>。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>自身の役割を理解してピーク対応ができている</li>
+      <li>手が空いた際に下支え行動ができている</li>
+      <li>洗い場や補充を滞らせず管理できている</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="peak-step3">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./peak.html" class="btn-nav">ピークトップに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DESHAPP-3｜備品管理・提供チェック</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DESHAPP-3｜備品管理・提供チェック
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      備品管理や提供前チェックを、<br>
+      <strong>「出していい状態か」を判断する工程</strong><br>
+      として行えるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（備品・提供前チェック）</h2>
+    <ul>
+      <li>フレッシュ・シロップ入れの保冷状況を管理している</li>
+      <li>フレッシュを正しい量で注いでいる</li>
+      <li>提供予定の商品を正確にチェックしている</li>
+      <li>商品・備品を丁寧に扱い、置き方や向きを整えている</li>
+      <li>伝票・チェックの記入をきれいに行っている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>備品の状態は、そのまま品質として伝わる</li>
+      <li>「なんとなくOK」は提供ミスにつながる</li>
+      <li>出す直前の確認で防げるトラブルが多い</li>
+      <li>提供前チェックは、最後の止め番である</li>
+    </ul>
+    <p>
+      👉 作業を進めるより、<br>
+      <strong>出して良いかを判断する</strong>ことを優先する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>フレッシュ・シロップの管理基準を説明できる</li>
+      <li>提供前に確認すべきポイントを説明できる</li>
+      <li>丁寧な扱いがなぜ必要か説明できる</li>
+      <li>確認せず出した場合のリスクを説明できる</li>
+    </ul>
+    <p class="note">
+      ※ 備品・提供チェックを判断として説明できること
+    </p>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="deshapp-step3">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./deshapp.html" class="btn-nav">デシャップTOPに戻る</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const key = btn.dataset.stepKey;
+
+  if (localStorage.getItem(key) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(key) === "done") {
+      localStorage.removeItem(key);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(key, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

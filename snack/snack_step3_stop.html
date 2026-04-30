@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  SNACK-3｜発展：同時調理・連携
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      スナック作成を単品作業で終わらせず、<br>
+      <strong>複数商品・複数人作業を同時に回せる状態</strong><br>
+      をつくることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>□ 複数のオーダーが入った場合、作成順を整理してから作業している</li>
+      <li>□ 複数商品を並行して、正しい手順で作成している</li>
+      <li>□ ドリンクの状況を確認し、全体を見て作成している</li>
+      <li>□ 作業が重なる場合、声を掛け合って連携している</li>
+      <li>□ 複数人作業時、自分の役割を理解して行動している</li>
+      <li>□ 包丁やお湯を持つ際、周囲に注意を呼びかけている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>一品の完成より、全体の流れを止めないことを優先する</li>
+      <li>自分の作業が他工程を詰まらせていないかを考える</li>
+      <li>声掛け・役割分担も作業効率の一部と考える</li>
+    </ul>
+    <p>
+      👉 発展段階では、<br>
+      <strong>「全体を回す判断」</strong>が求められる。
+    </p>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>複数商品を同時に回す判断を説明できた</li>
+      <li>連携・役割分担の考え方を説明できた</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="snack-step3">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  // 初期表示
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+<footer style="padding:12px; text-align:center;">
+  <a href="snack.html" class="btn">スナックトップに戻る</a> ｜ 
+  <a href="../index.html" class="btn">トップ</a> ｜ 
+  <a href="../progress.html" class="btn">進捗</a>
+</footer>
+
+</body>
+</html>

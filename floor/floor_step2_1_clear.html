@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP2-1｜下げ（解体）</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  STEP2-1｜下げ（解体）
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      下げ作業を「片付け」ではなく、<br>
+      <strong>次の来店・次の動きをスムーズにするための判断行動</strong><br>
+      として実行できるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+<div class="card">
+  <h2>① オペレーション（下げの実行）</h2>
+
+  <h3>フェーズA｜下げに入る判断</h3>
+  <ul>
+    <li>「ありがとうございます」の声や空席状況に反応し、速やかに下げに向かう</li>
+    <li>忘れ物がないかを最初に確認し、あった場合はすぐにレジへ届ける</li>
+    <li>他スタッフと動きが重複しないかを確認してから入る</li>
+  </ul>
+
+  <h3>フェーズB｜下げ動作の質</h3>
+  <ul>
+    <li>音を立てず、安定した動作で食器・グラスを下げる</li>
+    <li>バッシング中も周囲のお客様の動線・視線に配慮する</li>
+    <li>こぼしてしまった場合は、お客様へ配慮し落ち着いて静かに対応する</li>
+  </ul>
+
+  <h3>フェーズC｜下げ物の扱いルール</h3>
+  <ul>
+    <li>専用ダスターを使用し、清掃用と下げ物を混在させない</li>
+    <li>メニュー・シュガーポット・塩瓶を決まった位置に戻す</li>
+    <li>おしぼりを食器やパンかごに触れさせずに下げる</li>
+    <li>シルバーに置く際は、食器ごとに分けて安全に配置する</li>
+  </ul>
+
+  <h3>フェーズD｜完了後の状態確認</h3>
+  <ul>
+    <li>テーブル下・椅子の上まで清掃できているか確認する</li>
+    <li>下げ場で素早く正確に解体を行う</li>
+    <li>バッシング完了後は、他のスタッフに完了を共有する</li>
+  </ul>
+</div>
+
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>「今下げることで、次の案内が早まるか」を考える</li>
+      <li>フロア全体が見えていない状態で無理に下げに行かない</li>
+      <li>他スタッフの動きと重複しないかを確認する</li>
+      <li>下げ後に“次にやるべき行動”を止めない</li>
+    </ul>
+    <p>
+      👉 ただ下げるのではなく、<br>
+      <strong>「下げた結果、何が前に進むか」</strong>で判断する。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>下げ作業が「次の案内・回転率」に与える影響を説明できる</li>
+      <li>周囲のお客様に配慮すべき理由を説明できる</li>
+      <li>重複して下げに行くことのリスクを説明できる</li>
+      <li>下げ後に確認すべきポイントを説明できる</li>
+    </ul>
+    <p class="note">
+      ※ すべて「なぜそうするのか」を言葉で説明できること
+    </p>
+  </div>
+
+  <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>下げの目的と判断基準を自分の言葉で説明できた</li>
+      <li>次の行動まで含めて説明できた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="floor-step2-1">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./floor.html" class="btn-nav">フロアSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

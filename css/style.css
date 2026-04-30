@@ -1,0 +1,220 @@
+:root {
+  --primary: #6b4eff;
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #333;
+  --muted: #888;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+main {
+  padding: 16px;
+  padding-bottom: 80px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+}
+``
+/* フッターのリンクをボタン化 */
+footer {
+  padding: 12px;
+  text-align: center;
+}
+
+footer a {
+  display: inline-block;
+  margin: 4px 6px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  background: #f9f9f9;
+}
+
+footer a:hover {
+  background: #eef3ff;
+  border-color: #9fb2ff;
+}
+/* 判断・承認カードの色 */
+.card.judge {
+  background: #f3f7ff;
+  border-left: 4px solid #8aa5ff;
+}
+
+.card.approval {
+  background: #f3fff5;
+  border-left: 4px solid #7ccf8a;
+}
+/* 共通ボタン */
+a.btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 10px 14px;
+  background: #eef3ff;
+  border: 1px solid #9fb2ff;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+a.btn:hover {
+  background: #dbe4ff;
+  border-color: #7a93ff;
+}
+.btn:hover {
+  background: #dbe4ff;
+}
+/* footer 内リンクをボタン風にする */
+footer a {
+  display: inline-block;      /* ボタンっぽくする */
+  margin: 0 6px;              /* ボタン同士の間隔 */
+  padding: 8px 14px;          /* 押しやすさ */
+  background: #eef3ff;
+  border: 1px solid #9fb2ff;
+  border-radius: 6px;
+  text-decoration: none;      /* 下線を消す */
+  color: #000;
+  font-size: 14px;
+}
+
+/* ホバー時 */
+footer a:hover {
+  background: #dbe4ff;
+  border-color: #7a93ff;
+}
+``
+/* STEPリンク（カード内リンク）をボタン化 */
+.card a {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 10px 14px;
+  background: #eef3ff;
+  border: 1px solid #9fb2ff;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+/* ホバー時 */
+.card a:hover {
+  background: #dbe4ff;
+  border-color: #7a93ff;
+}
+/* footer内のbtnを明示的にボタン化（最終上書き） */
+footer a.btn {
+  display: inline-block;
+  margin: 4px 6px;
+  padding: 10px 14px;
+  background: #eef3ff;
+  border: 1px solid #9fb2ff;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+footer a.btn:hover {
+  background: #dbe4ff;
+  border-color: #7a93ff;
+}
+/* 【デバッグ用】footerボタン強制上書き */
+footer a.btn {
+  display: inline-block !important;
+  margin: 4px 6px !important;
+  padding: 10px 14px !important;
+  background: #ffefd5 !important;   /* ← あえて目立つ色 */
+  border: 2px solid #ff9800 !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  color: #000 !important;
+  font-size: 14px !important;
+}
+/* STEP完了ボタン（未完了） */
+.btn-step {
+  background: #c62828; /* 赤 */
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 完了後 */
+.btn-step.done {
+  background: #2e7d32; /* 緑 */
+}
+/* STEP完了ボタン */
+.btn-step {
+  background: #c62828;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-step.done {
+  background: #2e7d32;
+}
+
+/* フッターナビ */
+.step-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px;
+}
+
+.btn-nav {
+  background: #eef3ff;
+  border: 1px solid #9fb2ff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: #000;
+}
+
+.btn-nav:hover {
+  background: #dbe4ff;
+}

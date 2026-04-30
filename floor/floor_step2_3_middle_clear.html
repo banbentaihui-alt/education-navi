@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP2-3｜中間下げ</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  STEP2-3｜中間下げ
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      中間下げを「指示待ち作業」ではなく、<br>
+      <strong>お客様の居心地と次のサービスを前に進める判断行動</strong><br>
+      として実行できるようになることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション（やり方）</h2>
+    <ul>
+      <li>お客様の食事状況を確認してから声掛け・下げを行う</li>
+      <li>不要になった食器・グラスのみを選別して下げる</li>
+      <li>会話やくつろぎを妨げないよう、動作と音に配慮する</li>
+      <li>下げ後はテーブル上と足元の状態を軽く確認する</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>「今下げることで、居心地は良くなるか」を最初に考える</li>
+      <li>お客様がまだ使用する可能性がないかを見極める</li>
+      <li>呼ばれる前に動く価値があるかを判断する</li>
+      <li>中間下げ後、次のサービスにすぐ移れるかを考える</li>
+    </ul>
+    <p>
+      👉 中間下げは<strong>空気を読む判断力</strong>が問われる行動。
+    </p>
+  </div>
+
+  <!-- 検定チェック -->
+  <div class="card">
+    <h2>検定チェック項目（このSTEPで確認すること）</h2>
+    <ul class="checklist">
+      <li>中間下げが居心地に与える影響を説明できる</li>
+      <li>下げてはいけないタイミングを説明できる</li>
+      <li>声掛けが必要な理由を説明できる</li>
+      <li>中間下げ後に取るべき次行動を説明できる</li>
+    </ul>
+    <p class="note">
+      ※ すべて「なぜその判断になるか」を説明できること
+    </p>
+  </div>
+
+  <div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>中間下げの判断基準を自分の言葉で説明できた</li>
+      <li>居心地との関係を説明できた</li>
+    </ul>
+  </div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="floor-step2-3">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<footer class="step-footer">
+  <a href="./floor.html" class="btn-nav">フロアSTEP一覧</a>
+  <a href="../progress.html" class="btn-nav">進捗</a>
+</footer>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey.trim();
+
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

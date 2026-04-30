@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEP</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+  DRINK-2｜応用：時間管理・段取り
+</header>
+
+<main>
+
+  <!-- STEP目的 -->
+  <div class="card">
+    <h2>このSTEPの目的</h2>
+    <p>
+      レシピと基準を守ったまま、<br>
+      <strong>適正な時間内で無駄なくドリンクを作成できる状態</strong><br>
+      をつくることを目的とします。
+    </p>
+  </div>
+
+  <!-- オペレーション -->
+  <div class="card">
+    <h2>① オペレーション</h2>
+    <ul>
+      <li>□ 伝票内容を事前に確認し、作成順を決めている</li>
+      <li>□ 食材・食器・器具の位置を把握し、迷わず取り出せている</li>
+      <li>□ 正しい手順で、戻り動作や無駄な移動なく作業している</li>
+      <li>□ 作業の合間に補充・片づけを行い、次のオーダーに備えている</li>
+      <li>□ 基準の出品時間から大きな遅れなく作成できている</li>
+    </ul>
+  </div>
+
+  <!-- 判断 -->
+  <div class="card">
+    <h2>② 行動判断の考え方</h2>
+    <ul>
+      <li>早さは「急ぐこと」ではなく「段取り」で生まれる</li>
+      <li>今の作業が次のオーダーを止めていないかを考える</li>
+      <li>1杯ずつ作るより、まとめた方が早くなる場面を見極める</li>
+    </ul>
+    <p>
+      👉 速さの正体は、<br>
+      <strong>正しい順番と無駄のない動き</strong>。
+    </p>
+  </div>
+
+  <!-- トレーナー承認 -->
+  <div class="card">
+    <h2>トレーナー承認</h2>
+    <ul>
+      <li>時間内で作成するための段取りを説明できた</li>
+      <li>無駄な動きが発生する理由を説明できた</li>
+    </ul>
+  </div>
+
+<div class="card">
+  <h3>判断例動画</h3>
+
+  <div style="position: relative; padding-top: 56.25%;">
+    <iframe
+      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+  <!-- STEP完了 -->
+  <div class="card">
+    <h2>STEP完了</h2>
+    <button class="btn-step js-step-toggle"
+            data-step-key="drink-step2">
+      このSTEPを完了
+    </button>
+  </div>
+
+</main>
+
+<script>
+document.querySelectorAll(".js-step-toggle").forEach(btn => {
+  const stepKey = btn.dataset.stepKey;
+
+  // 初期表示
+  if (localStorage.getItem(stepKey) === "done") {
+    btn.textContent = "✔ 完了済み（再度押すと解除）";
+    btn.classList.add("done");
+  }
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    if (localStorage.getItem(stepKey) === "done") {
+      localStorage.removeItem(stepKey);
+      btn.textContent = "このSTEPを完了";
+      btn.classList.remove("done");
+    } else {
+      localStorage.setItem(stepKey, "done");
+      btn.textContent = "✔ 完了済み（再度押すと解除）";
+      btn.classList.add("done");
+    }
+  });
+});
+</script>
+
+<footer style="padding:12px; text-align:center;">
+  <a href="drink.html" class="btn">ドリンクトップに戻る</a> ｜ 
+  <a href="../index.html" class="btn">トップ</a> ｜ 
+  <a href="../progress.html" class="btn">進捗</a>
+</footer>
+
+</body>
+</html>
