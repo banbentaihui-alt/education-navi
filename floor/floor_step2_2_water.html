@@ -66,16 +66,22 @@
   <div class="card">
   <h3>判断例動画</h3>
 
-  <div style="position: relative; padding-top: 56.25%;">
+  <!-- 動画の説明（UX対策・重要） -->
+  <p class="video-note">
+    ※ 下の動画は、画面中央の再生ボタン（▶）をクリックしてください。
+  </p>
+
+  <!-- レスポンシブ対応・公式iframe -->
+  <div class="video-wrapper">
     <iframe
-      src="https://www.youtube.com/embed/xxxxxxxxxxxxx"
-      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+      src="https://www.youtube.com/embed/wDeo7t2THHA?playsinline=1"
+      title="判断例動画"
       frameborder="0"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
   </div>
-</div>
+
 
 
 
@@ -129,3 +135,18 @@ document.querySelectorAll(".js-step-toggle").forEach(btn => {
 
 </body>
 </html>
+<div class="step-complete-area">
+
+  <div class="step-complete-label">
+    FLOOR の STEP 1 が完了しました
+  </div>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSe8ip41h7Bhko4p0gMG3IzSbdD8Ur6y7nNoCxJU4C2BHNTaKw/viewform"
+    target="_blank"
+    class="step-complete-btn"
+  >
+    STEP完了を送信
+  </a>
+
+</div>
